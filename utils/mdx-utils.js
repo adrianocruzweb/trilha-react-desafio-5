@@ -13,7 +13,13 @@ export const getPosts = async () => {
 export const getPostBySlug = async (id) => {
 
     //TODO: BUSCAR UM POST EM ESPECIFICO.
-    //const {data} = await api.get(`/post?id=eq.${id}`)
+    const {data, errors} = await api.get(`/posts?id=eq.${encodeURIComponent(id)}&select=*`);
 
-    return {}
+
+    if(data){
+        return data;
+    }
+
+    return ''
 }
+

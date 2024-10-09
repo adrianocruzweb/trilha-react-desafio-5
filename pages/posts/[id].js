@@ -59,9 +59,11 @@ export default function PostPage({
 }
 
 export const getServerSideProps = async ({ params }) => {
+
   const globalData = getGlobalData();
-  const posts = await getPostBySlug(params.id);
- 
+  const data = await getPostBySlug(params.id);
+
+  const posts = data[0];
 
   return {
     props: {
